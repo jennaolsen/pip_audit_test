@@ -1,0 +1,34 @@
+# This uv.lock file is intentionally created for a demo security scanning project.
+# It contains outdated and vulnerable dependency versions on purpose.
+
+version = 1
+
+[[package]]
+name = "flask"
+version = "1.0"
+requires-python = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*"
+
+[[package]]
+name = "requests"
+version = "2.19.0"
+requires-python = ">=2.6,!=3.0.*,!=3.1.*,!=3.2.*"
+
+[[package]]
+name = "urllib3"
+version = "1.24.1"
+requires-python = ">=2.6,!=3.0.*,!=3.1.*,!=3.2.*"
+
+[[package]]
+name = "PyYAML"
+version = "5.3"
+requires-python = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*"
+
+[[package]]
+name = "Django"
+version = "2.2.9"
+requires-python = ">=3.5"
+
+[metadata]
+generated-by = "uv 0.1 demo"
+lock-format-version = "1"
+content-hash = "00000000000000000000000000000000"
