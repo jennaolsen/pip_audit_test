@@ -1,0 +1,36 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.env/
+.env*/ 
+
+# macOS junk
+.DS_Store
+*.swp
+
+# Logs and temp
+*.log
+*.tmp
+*.temp
+
+# Python packaging
+build/
+dist/
+*.egg-info/
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Environment / secrets
+*.env
+*.json
+config.yaml
+secret*.txt
