@@ -26,7 +26,7 @@ jobs:
       
       - name: Run pip-audit using requirements.txt
         run: pip-audit -r vulnerable-app/requirements.txt -f json -o vulnerable-app/pip-audit.json
-
+        continue-on-error: true
       
       - name: Convert pip-audit JSON to SARIF
         uses: courtneybodily/pip-audit-sarif-action@main
