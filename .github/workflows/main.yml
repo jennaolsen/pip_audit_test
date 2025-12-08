@@ -1,6 +1,9 @@
 name: Vulnerable App CI
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
@@ -10,33 +13,31 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-    
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      
       - name: Install pip-audit
         run: pip install pip-audit
 
-      
       - name: Run pip-audit using requirements.txt
         run: pip-audit -r vulnerable-app/requirements.txt -f json -o vulnerable-app/pip-audit.json
         continue-on-error: true
-      
+
       - name: Convert pip-audit JSON to SARIF
         uses: courtneybodily/pip-audit-sarif-action@main
         with:
           input-file: vulnerable-app/pip-audit.json
           output-file: results.sarif
+          # artifact-path points to an actual file in the repo so GitHub shows the alerts
           artifact-path: vulnerable-app/requirements.txt
-
 
       - name: Upload SARIF to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: results.sarif
+
