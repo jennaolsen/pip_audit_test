@@ -13,31 +13,31 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+    
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
+      
       - name: Install pip-audit
         run: pip install pip-audit
 
-      - name: Install dependencies (allow failure)
-        run: uv pip install -r vulnerable-app/requirements.txt || true
-
-
+      
       - name: Run pip-audit using uv.lock
         working-directory: vulnerable-app
-        run: pip-audit -l -f json -o pip-audit.json
+        run: pip-audit -l uv.lock -f json -o pip-audit.json || true
 
+      
       - name: Convert pip-audit JSON to SARIF
-        uses: courtneybodily/pip-audit-sarif-action@main
+        uses: courtneybodily/pip-audit-sarif-action@v1
         with:
           input-file: vulnerable-app/pip-audit.json
           output-file: results.sarif
-          artifact-path: vulnerable-app/requirements.txt
-
+          artifact-path: vulnerable-app/uv.lock
 
       - name: Upload SARIF to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: results.sarif
+
