@@ -16,7 +16,7 @@ Repository Structure
 
 Demo Vulnerabilities
 
-  The vulnerable-app/ folder includes outdated and intentionally vulnerable Python packages:
+  The vulnerable-app/ folder includes outdated and intentionally vulnerable Python packages with different severity levels:
 
   Flask 1.0
 
@@ -30,7 +30,7 @@ Demo Vulnerabilities
 
   
   These versions are chosen to trigger findings when scanned by pip-audit and converted to SARIF
-  
+
 
 Evidence of Functionality
 
