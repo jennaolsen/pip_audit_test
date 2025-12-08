@@ -7,8 +7,8 @@ Contents:
 
 Vulnerabilites:
     Flask 1.0
-    Requests 2.19.0
-    urllib3 1.24.1
+    Requests 2.22.0
+    urllib3 1.22
     PyYAML 5.3
     Django 2.2.9
     These are all intentionally oudated and contain known security issues.

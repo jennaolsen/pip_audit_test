@@ -20,9 +20,9 @@ Demo Vulnerabilities
 
   Flask 1.0
 
-  Requests 2.19.0
+  Requests 2.22.0
 
-  urllib3 1.24.1
+  urllib3 1.22
 
   PyYAML 5.3
 
