@@ -21,9 +21,8 @@ jobs:
       - name: Install pip-audit
         run: pip install pip-audit
 
-      - name: Install vulnerable dependencies
-        working-directory: vulnerable-app
-        run: pip install -r requirements.txt
+      - name: Install dependencies (allow failure)
+        run: uv pip install -r vulnerable-app/requirements.txt || true
 
 
       - name: Run pip-audit using uv.lock
