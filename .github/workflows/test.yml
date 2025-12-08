@@ -26,11 +26,12 @@ jobs:
         run: pip-audit -l -f json -o pip-audit.json
 
       - name: Convert pip-audit JSON to SARIF
-        uses: courtneybodily/pip-audit-sarif-action@v1
+        uses: courtneybodily/pip-audit-sarif-action@main
         with:
           input-file: vulnerable-app/pip-audit.json
           output-file: results.sarif
-          artifact-path: vulnerable-app/uv.lock
+          artifact-path: vulnerable-app/requirements.txt
+
 
       - name: Upload SARIF to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v3
