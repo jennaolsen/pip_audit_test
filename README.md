@@ -2,6 +2,7 @@ Security Scan Demo Repository
 
 This repository demonstrates an end-to-end security scanning workflow using pip-audit, a custom SARIF converter GitHub Action, and GitHub Advanced Security Code Scanning. It contains a demo Python application with intentionally vulnerable dependencies to generate security findings.
 
+
 Repository Structure
 
   .github/workflows/----GitHub Actions workflow YAML (security-scan.yml)
@@ -11,6 +12,7 @@ Repository Structure
   screenshots/----Evidence of workflow runs and Code Scanning alerts
   
   README.md----This documentation
+
 
 Demo Vulnerabilities
 
@@ -28,6 +30,7 @@ Demo Vulnerabilities
 
   
   These versions are chosen to trigger findings when scanned by pip-audit and converted to SARIF
+  
 
 Evidence of Functionality
 
