@@ -24,8 +24,8 @@ jobs:
         run: pip install pip-audit
 
       
-      - name: Run pip-audit using uv.lock
-        run: pip-audit -l vulnerable-app/uv.lock -f json -o vulnerable-app/pip-audit.json
+      - name: Run pip-audit using requirements.txt
+        run: pip-audit -r vulnerable-app/requirements.txt -f json -o vulnerable-app/pip-audit.json
 
       
       - name: Convert pip-audit JSON to SARIF
