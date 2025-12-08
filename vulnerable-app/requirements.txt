@@ -1,12 +1,13 @@
 # Low severity
-markupsafe==1.1.0        
+idna==2.5
+certifi==2018.8.24
 
 # Medium severity
-flask==1.0               
-requests==2.22.0         
-urllib3==1.22             
+flask==1.0
+requests==2.22.0
+PyYAML==5.3
 
-# High severity
-PyYAML==5.3              
-django==2.2.9 
+# High / Critical severity
+django==2.1.0
+werkzeug==0.14.1
 
