@@ -25,8 +25,7 @@ jobs:
 
       
       - name: Run pip-audit using uv.lock
-        working-directory: vulnerable-app
-        run: pip-audit -l uv.lock -f json -o pip-audit.json || true
+        run: pip-audit -l vulnerable-app/uv.lock -f json -o vulnerable-app/pip-audit.json
 
       
       - name: Convert pip-audit JSON to SARIF
