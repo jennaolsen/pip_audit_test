@@ -5,11 +5,10 @@ This repository demonstrates an end-to-end security scanning workflow using pip-
 
 Repository Structure
 
-  .github/workflows/----GitHub Actions workflow YAML (security-scan.yml)
+  .github/workflows/----GitHub Actions workflow YAML (main.yml)
 
   vulnerable-app/----Demo Python app with known vulnerable dependencies and uv.lock
 
-  
   README.md----This documentation
 
 
