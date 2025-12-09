@@ -5,12 +5,10 @@ This repository demonstrates an end-to-end security scanning workflow using pip-
 
 Repository Structure
 
-  .github/workflows/----GitHub Actions workflow YAML (security-scan.yml)
+  .github/workflows/----GitHub Actions workflow YAML (main.yml)
 
   vulnerable-app/----Demo Python app with known vulnerable dependencies and uv.lock
 
-  screenshots/----Evidence of workflow runs and Code Scanning alerts
-  
   README.md----This documentation
 
 
@@ -18,15 +16,19 @@ Demo Vulnerabilities
 
   The vulnerable-app/ folder includes outdated and intentionally vulnerable Python packages with different severity levels:
 
+  idna 2.5
+
+  certifi 2018.8.24
+
   Flask 1.0
 
   Requests 2.22.0
 
-  urllib3 1.22
-
   PyYAML 5.3
 
-  Django 2.2.9
+  Django 2.1.0
+
+  werkzeug 0.14.1
 
   
   These versions are chosen to trigger findings when scanned by pip-audit and converted to SARIF
@@ -34,10 +36,17 @@ Demo Vulnerabilities
 
 Evidence of Functionality
 
-  Screenshots showing successful workflow runs and Code Scanning alerts are provided in the screenshots/ folder:
+  The following screenshots show successful workflow runs and Code Scanning alerts. 
 
-  workflow-run.png----Actions tab showing workflow execution
+ <img width="1216" height="728" alt="MultipleWorkflows" src="https://github.com/user-attachments/assets/c8820c49-4bd2-4d7f-9be0-4c5739e016c0" />
+ ----Actions tab showing workflow execution
 
-  code-scanning-alerts.png----Security tab showing detected vulnerabilities
+ <img width="1440" height="868" alt="WorflowDetails" src="https://github.com/user-attachments/assets/ec5e7a9c-c075-4ba1-a6d4-130af0147e13" />
+----Workflow Details
+  
 
-  alert-details.png----Detailed view linking findings to the code
+ <img width="1211" height="731" alt="CodeScanningAlerts" src="https://github.com/user-attachments/assets/997c1b67-6be7-40c6-bef8-09dba09d7164" />
+ ----Security tab showing detected vulnerabilities
+
+  <img width="1205" height="720" alt="AlertDetails" src="https://github.com/user-attachments/assets/5b486472-6dee-4aff-a571-4e13223ad94c" />
+----Detailed view linking findings to the code
