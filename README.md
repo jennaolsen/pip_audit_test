@@ -1,37 +1,69 @@
-Security Scan Demo Repository
+🔐 Security Scan Demo Repository
 
-This repository demonstrates an end-to-end security scanning workflow using pip-audit, a custom SARIF converter GitHub Action, and GitHub Advanced Security Code Scanning. It contains a demo Python application with intentionally vulnerable dependencies to generate security findings.
+This repository demonstrates an end-to-end security scanning workflow using:
+
+pip-audit to detect vulnerable Python dependencies
+
+A custom SARIF converter GitHub Action
+
+GitHub Advanced Security – Code Scanning for displaying findings
+
+It is designed as a teaching and testing project to show how dependency vulnerabilities travel from a scan → SARIF → GitHub Security Alerts.
+
+📁 Repository Structure
+/
+├── .github/workflows/
+│     └── main.yml            # Security scanning workflow
+│
+├── vulnerable-app/
+│     ├── app.py              # Demo Python application
+│     ├── requirements.txt    # Intentionally vulnerable dependencies
+│     └── uv.lock             # Lockfile used by pip-audit
+│
+└── README.md                 # This documentation
 
 
-Repository Structure
+The vulnerable-app/ folder contains a simple Python app whose only purpose is to generate vulnerability findings for educational use.
 
-  .github/workflows/----GitHub Actions workflow YAML (main.yml)
+⚠️ Demo Vulnerabilities (Intentional)
 
-  vulnerable-app/----Demo Python app with known vulnerable dependencies and uv.lock
+The Python packages below are intentionally outdated so that pip-audit will detect issues.
 
-  README.md----This documentation
+Included Vulnerable Dependencies
+Package	Version	Notes
+idna	2.5	Known low-severity issues
+certifi	2018.8.24	Outdated certificate bundle
+Flask	1.0	Contains several moderate CVEs
+Requests	2.22.0	Known medium issues
+PyYAML	5.3	Historically contained RCE vulnerabilities
+Django	2.1.0	Multiple high/critical CVEs in old branches
+werkzeug	0.14.1	Outdated and vulnerable
 
+These versions are explicitly chosen to produce findings when scanned, allowing you to see:
 
-Demo Vulnerabilities
+How pip-audit reports vulnerabilities
 
-  The vulnerable-app/ folder includes outdated and intentionally vulnerable Python packages with different severity levels:
+How your SARIF converter assigns severity levels
 
-  idna 2.5
+How GitHub displays them under Security → Code Scanning Alerts
 
-  certifi 2018.8.24
+🔄 How the Workflow Operates
 
-  Flask 1.0
+The GitHub Actions workflow performs the following steps:
 
-  Requests 2.22.0
+Install dependencies
 
-  PyYAML 5.3
+Run pip-audit on the vulnerable-app folder
 
-  Django 2.1.0
+Produce pip-audit JSON output
 
-  werkzeug 0.14.1
+Run the custom SARIF converter
 
-  
-  These versions are chosen to trigger findings when scanned by pip-audit and converted to SARIF
+Upload SARIF to GitHub Code Scanning
+
+Display alerts inside Security → Code Scanning
+
+This demonstrates a full round-trip from detection → transformation → reporting.
 
 
 Evidence of Functionality
