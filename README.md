@@ -11,16 +11,16 @@ GitHub Advanced Security – Code Scanning for displaying findings
 It is designed as a teaching and testing project to show how dependency vulnerabilities travel from a scan → SARIF → GitHub Security Alerts.
 
 📁 Repository Structure
-/
-├── .github/workflows/
-│     └── main.yml            # Security scanning workflow
-│
-├── vulnerable-app/
-│     ├── app.py              # Demo Python application
-│     ├── requirements.txt    # Intentionally vulnerable dependencies
-│     └── uv.lock             # Lockfile used by pip-audit
-│
-└── README.md                 # This documentation
+
+    .github/workflows/main.yml            # Security scanning workflow
+
+    vulnerable-app/app.py              # Demo Python application
+
+    vulnerable-app/requirements.txt    # Intentionally vulnerable dependencies
+
+    vulnerable-app/uv.lock             # Lockfile used by pip-audit
+
+    README.md                 # This documentation
 
 
 The vulnerable-app/ folder contains a simple Python app whose only purpose is to generate vulnerability findings for educational use.
